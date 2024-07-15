@@ -78,11 +78,53 @@ body{
 
 }
 
+.max-moves{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: flex-end;
+    align-items: center;
+    width:max-content;
+    margin-left: auto;
+    color: #9b9da1;
+    font-family: sans-serif;
+}
+
+.max-moves label{
+    font-size: 12px;
+    color: #0ea4e9f8;
+}
+
+#max-moves{
+   
+    background-color: #1f1f1f;
+    border: none;
+    width:80px;
+    height: 100%;
+    border-radius: 0.375rem;
+    font-size: 12px;
+    font-family: sans-serif;    
+    color: #9b9da1;
+    font-weight: bold;
+    text-align: right;
+    padding-right: 10px;    
+    cursor: pointer;
+}
+
+#max-moves:focus{
+    border:solid rgb(147 197 253 ) 1px;
+}
+
 #new-game:hover{
     background-color: #000000;
     color: #E5E7EB;
     transition: 200ms ease-in-out;
 }
+
+/* #new-game:active{
+    border:solid rgb(147 197 253 ) 1px;
+    transition: 200ms;
+} */
 
 .result{
     display: none;
@@ -188,6 +230,10 @@ body{
     background-color: rgb(255, 255, 255);
     transform: translateY(-20%);
     transition: transform 200ms ease;
+}
+
+.player-choice:active{
+    background-color: #a9e4ff;
 }
 
 .player-choice::before {
