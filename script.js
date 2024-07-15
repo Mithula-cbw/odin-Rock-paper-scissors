@@ -1,5 +1,7 @@
 console.log("it's connected!")
 
+const choices = document.querySelectorAll('.player-choice');
+
 const rock=1;
 const paper=2;
 const scissors=3;
@@ -14,3 +16,11 @@ function getRandom(){
 //     console.log(getRandom());
 // }
 
+choices.forEach( choice =>{
+    choice.addEventListener('click', () =>{
+        const playerChoice = choice.getAttribute('data-choice');
+        console.log(playerChoice);
+    })
+}
+
+)
