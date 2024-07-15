@@ -16,4 +16,84 @@ body{
     height: 100vh;
     height: 100dvh;
     background-color: var(--bg-color);
+    display: grid;
+    place-items: center;
+}
+
+.choice-container{
+    width: 360px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.player-choice{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: none;
+    background-color:#A651F6;
+    cursor: pointer;
+
+}
+
+.player-choice::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 50%;
+    z-index: -1;
+    transform: scale(0.5);
+    transform-origin: center;
+    background-color: rgb(255, 255, 255);
+    animation: pulse 1500ms infinite;
+
+}
+
+.player-choice img{
+    max-width: 80%;
+}
+
+.player-choice:hover{
+    background-color: rgb(255, 255, 255);
+    transform: translateY(-20%);
+    transition: transform 200ms ease;
+}
+
+.player-choice::before {
+    content: attr(aria-label);
+    position: absolute;
+    top: 105%;
+    left: 50%; 
+    transform: translateX(-50%); 
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 14px;
+    white-space: nowrap; 
+    opacity: 0;
+    
+}
+
+.player-choice:hover::before {
+    opacity: 1; 
+    transition: opacity 0.2s ease;
+}
+
+@keyframes pulse{
+    0%{
+     transform: scale(0.5);
+     opacity: 1;
+          
+    }
+
+    100%{
+        transform: scale(1.4);
+        opacity: 0;    
+    }
 }
