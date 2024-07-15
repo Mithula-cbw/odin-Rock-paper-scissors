@@ -9,7 +9,7 @@ const newGame = document.querySelector('#new-game');
 
 // console.log(humanWinCountOut);
 // console.log(pcWinCountOut);
-console.log(newGame);
+// console.log(newGame);
 
 
 
