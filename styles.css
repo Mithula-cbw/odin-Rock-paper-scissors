@@ -1,0 +1,19 @@
+
+:root{
+    --bg-color: #0F172A;
+}
+
+*,
+::after,
+::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    overflow: hidden;
+    height: 100vh;
+    height: 100dvh;
+    background-color: var(--bg-color);
+}
