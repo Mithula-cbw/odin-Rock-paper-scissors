@@ -1,5 +1,6 @@
 console.log("it's connected!")
 
+const overlay = document.getElementById('overlay');
 const choices = document.querySelectorAll('.player-choice');
 const battleGround = document.querySelector('.battleGround');
 const resultContainer = document.querySelector('.result')
@@ -7,7 +8,12 @@ const humanWinCountOut = document.querySelector('#human-result');
 const pcWinCountOut = document.querySelector('#pc-result');
 const newGame = document.querySelector('#new-game');
 const newGame2 = document.querySelector('#new-game2');
+const maxMovesSelect = document.getElementById('max-moves');
+const gameOverCard = document.querySelector('.game-over-card');
+const gameOverTitle = document.getElementById('game-over-title');
+const gameOverText = document.getElementById('game-over-text');
 
+// console.log(maxMovesSelect);
 // console.log(humanWinCountOut);
 // console.log(pcWinCountOut);
 // console.log(newGame);
@@ -17,8 +23,13 @@ const newGame2 = document.querySelector('#new-game2');
 const rock=1;
 const paper=2;
 const scissors=3;
+let moveCount =0;
+let count = 0;
 let humanWinCount =0;
 let pcWinCount =0;
+let selectedValue = parseInt(maxMovesSelect.value);
+
+//  console.log(selectedValue);
 
 function getRandom(){
     return Math.floor(Math.random() * 3) + 1;
@@ -30,7 +41,34 @@ function newGameStart(){
     pcWinCountOut.textContent = pcWinCount;
     humanWinCountOut.textContent = humanWinCount;
     battleGround.textContent = "Good luck on your new battle!";
+
     // console.log(`${humanWinCount} ${pcWinCount}`)
+}
+
+maxMovesSelect.addEventListener('change' ,() =>{
+    selectedValue = parseInt(maxMovesSelect.value);
+})
+
+function isGameWon(count){
+
+    // console.log(`checking for winners...${count}`)
+    // console.log(`pc :${pcWinCount} win:${((selectedValue+1)/2)}`)
+
+    if(pcWinCount>= ((selectedValue+1)/2)){
+
+        gameOverCard.style.display= 'block';
+        // console.log("game lost!");
+            gameOverTitle.textContent = "You Lost!";
+            gameOverText.textContent = "It's sad you fell in this battle, but try again!";
+            gameOverCard.style.display = 'block';
+            
+    }else if (humanWinCount>= ((selectedValue+1)/2)){
+        // console.log("game won!");
+        gameOverTitle.textContent = "You won!";
+        gameOverText.textContent = "Now that was a great battle!  Keep up you spirit and win more!";        
+        gameOverCard.style.display = 'block';
+    }
+   
 }
 
 // newGameStart();
@@ -46,6 +84,7 @@ newGame.addEventListener('click' , () =>{
 
 newGame2.addEventListener('click' , () =>{
     // console.log("new game");
+    gameOverCard.style.display = 'none';
     newGameStart();
 
 })
@@ -70,8 +109,10 @@ choices.forEach(choice => {
         }
         
         let resultMessage = ` `;
-        console.log(resultMessage);
+        // console.log(resultMessage);
         
+        
+
         if (playerChoice === random) {
            resultMessage += "It's a tie!";
         } else {
@@ -110,5 +151,7 @@ choices.forEach(choice => {
         battleGround.textContent = resultMessage;
         pcWinCountOut.textContent = pcWinCount;
         humanWinCountOut.textContent = humanWinCount;
+        count++;
+        isGameWon(count);
     });
 });
