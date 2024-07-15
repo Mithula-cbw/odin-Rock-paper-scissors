@@ -368,9 +368,5 @@ body{
      #game-over-text {
            display: none;
         }
-    #new-game2{
-        transform: scale(0.8);
-    }
-    
-
+  
 }
