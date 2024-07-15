@@ -1,6 +1,10 @@
 console.log("it's connected!")
 
 const choices = document.querySelectorAll('.player-choice');
+const battleGround = document.querySelector('.battleGround');
+const resultContainer = document.querySelector('.result')
+
+
 
 const rock=1;
 const paper=2;
@@ -20,36 +24,52 @@ choices.forEach(choice => {
     choice.addEventListener('click', () => {
         const playerChoice = parseInt(choice.getAttribute('data-choice')); // Convert to number
         const random = getRandom();
+        resultContainer.style.display = 'block';
+        let playerChoose;
+
+        switch (playerChoice) {
+            case 1: // Rock
+                playerChoose = 'Rock';
+                break;
+            case 2: // Paper
+                playerChoose = 'Paper';
+                break;
+            case 3: // Scissors
+                playerChoose = 'Scissors';
+                break;
+        }
         
-        console.log(`Player choice: ${playerChoice}`);
-        console.log(`Computer choice: ${random}`);
+        let resultMessage = ` `;
+        console.log(resultMessage);
         
         if (playerChoice === random) {
-            console.log("It's a tie!");
+           resultMessage += "It's a tie!";
         } else {
             switch (playerChoice) {
                 case 1: // Rock
                     if (random === 2) {
-                        console.log("Computer chose Paper. You lose!");
+                        resultMessage += "Computer chose Paper. You lose!";
                     } else {
-                        console.log("Computer chose Scissors. You win!");
+                        resultMessage += "Computer chose Scissors. You win!";
                     }
                     break;
                 case 2: // Paper
                     if (random === 3) {
-                        console.log("Computer chose Scissors. You lose!");
+                        resultMessage += "Computer chose Scissors. You lose!";
                     } else {
-                        console.log("Computer chose Rock. You win!");
+                       resultMessage += "Computer chose Rock. You win!";
                     }
                     break;
                 case 3: // Scissors
                     if (random === 1) {
-                        console.log("Computer chose Rock. You lose!");
+                        resultMessage += "Computer chose Rock. You lose!";
                     } else {
-                        console.log("Computer chose Paper. You win!");
+                        resultMessage += "Computer chose Paper. You win!";
                     }
                     break;
             }
         }
+
+        battleGround.textContent = resultMessage;
     });
 });

@@ -57,7 +57,7 @@ body{
 }
 
 .result{
-    /* display: none; */
+    display: none;
     width: var(--container-width);
     height: 40px;
     border:solid rgb(147 197 253 ) 1px;
