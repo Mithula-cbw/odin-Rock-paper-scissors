@@ -5,9 +5,11 @@ const battleGround = document.querySelector('.battleGround');
 const resultContainer = document.querySelector('.result')
 const humanWinCountOut = document.querySelector('#human-result');
 const pcWinCountOut = document.querySelector('#pc-result');
+const newGame = document.querySelector('#new-game');
 
 // console.log(humanWinCountOut);
 // console.log(pcWinCountOut);
+console.log(newGame);
 
 
 
@@ -21,9 +23,25 @@ function getRandom(){
     return Math.floor(Math.random() * 3) + 1;
 }
 
+function newGameStart(){
+    humanWinCount =0;
+    pcWinCount =0;
+    pcWinCountOut.textContent = pcWinCount;
+    humanWinCountOut.textContent = humanWinCount;
+    battleGround.textContent = "Good luck on you new battle!";
+    // console.log(`${humanWinCount} ${pcWinCount}`)
+}
+
+// newGameStart();
 // for(let i=0; i<100;i++){
 //     console.log(getRandom());
 // }
+
+newGame.addEventListener('click' , () =>{
+    // console.log("new game");
+    newGameStart();
+
+})
 
 choices.forEach(choice => {
     choice.addEventListener('click', () => {
