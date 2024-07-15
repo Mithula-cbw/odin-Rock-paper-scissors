@@ -16,11 +16,40 @@ function getRandom(){
 //     console.log(getRandom());
 // }
 
-choices.forEach( choice =>{
-    choice.addEventListener('click', () =>{
-        const playerChoice = choice.getAttribute('data-choice');
-        console.log(playerChoice);
-    })
-}
-
-)
+choices.forEach(choice => {
+    choice.addEventListener('click', () => {
+        const playerChoice = parseInt(choice.getAttribute('data-choice')); // Convert to number
+        const random = getRandom();
+        
+        console.log(`Player choice: ${playerChoice}`);
+        console.log(`Computer choice: ${random}`);
+        
+        if (playerChoice === random) {
+            console.log("It's a tie!");
+        } else {
+            switch (playerChoice) {
+                case 1: // Rock
+                    if (random === 2) {
+                        console.log("Computer chose Paper. You lose!");
+                    } else {
+                        console.log("Computer chose Scissors. You win!");
+                    }
+                    break;
+                case 2: // Paper
+                    if (random === 3) {
+                        console.log("Computer chose Scissors. You lose!");
+                    } else {
+                        console.log("Computer chose Rock. You win!");
+                    }
+                    break;
+                case 3: // Scissors
+                    if (random === 1) {
+                        console.log("Computer chose Rock. You lose!");
+                    } else {
+                        console.log("Computer chose Paper. You win!");
+                    }
+                    break;
+            }
+        }
+    });
+});
