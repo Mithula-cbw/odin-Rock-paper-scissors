@@ -51,9 +51,34 @@ body{
     margin-left: 5px;
 }
 
-
 .github:hover svg{
     fill:#A651F6;
+}
+
+.two-columns{
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    font-family: sans-serif;
+    text-align: center;
+    color: #81848a;
+}
+
+.score{
+    width: calc(50% - 0.5rem);
+    border: 1px dashed #A651F6 ;
+    padding: 1rem;
+    border-radius: 0.3rem;   
+    font-size: 12px;
+}
+
+.score span{
+    display: block;
+    font-size: 30px;    
+    color: #E5E7EB;
+    margin-bottom: 1rem;
+    font-weight: bold;
 }
 
 
