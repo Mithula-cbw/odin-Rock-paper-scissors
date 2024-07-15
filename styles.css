@@ -16,9 +16,46 @@ body{
     height: 100vh;
     height: 100dvh;
     background-color: var(--bg-color);
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
     place-items: center;
 }
+
+.title{
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.title h1{
+    color: #E5E7EB;
+    margin-top: 5rem;
+   
+}
+
+.title p{
+    color: #69707B;
+    margin-top: .9rem;
+}
+
+.github{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.github a svg{
+    max-width: 100%;
+    fill:#69707B;
+    margin-top: 16px;
+    margin-left: 5px;
+}
+
+
+.github:hover svg{
+    fill:#A651F6;
+}
+
 
 .choice-container{
     width: 360px;
