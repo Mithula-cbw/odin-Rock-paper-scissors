@@ -6,6 +6,7 @@ const resultContainer = document.querySelector('.result')
 const humanWinCountOut = document.querySelector('#human-result');
 const pcWinCountOut = document.querySelector('#pc-result');
 const newGame = document.querySelector('#new-game');
+const newGame2 = document.querySelector('#new-game2');
 
 // console.log(humanWinCountOut);
 // console.log(pcWinCountOut);
@@ -28,7 +29,7 @@ function newGameStart(){
     pcWinCount =0;
     pcWinCountOut.textContent = pcWinCount;
     humanWinCountOut.textContent = humanWinCount;
-    battleGround.textContent = "Good luck on you new battle!";
+    battleGround.textContent = "Good luck on your new battle!";
     // console.log(`${humanWinCount} ${pcWinCount}`)
 }
 
@@ -38,6 +39,12 @@ function newGameStart(){
 // }
 
 newGame.addEventListener('click' , () =>{
+    // console.log("new game");
+    newGameStart();
+
+})
+
+newGame2.addEventListener('click' , () =>{
     // console.log("new game");
     newGameStart();
 
