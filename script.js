@@ -3,6 +3,11 @@ console.log("it's connected!")
 const choices = document.querySelectorAll('.player-choice');
 const battleGround = document.querySelector('.battleGround');
 const resultContainer = document.querySelector('.result')
+const humanWinCountOut = document.querySelector('#human-result');
+const pcWinCountOut = document.querySelector('#pc-result');
+
+// console.log(humanWinCountOut);
+// console.log(pcWinCountOut);
 
 
 
@@ -49,27 +54,36 @@ choices.forEach(choice => {
                 case 1: // Rock
                     if (random === 2) {
                         resultMessage += "Computer chose Paper. You lose!";
+                        pcWinCount++;
                     } else {
                         resultMessage += "Computer chose Scissors. You win!";
+                        humanWinCount++;
+
                     }
                     break;
                 case 2: // Paper
                     if (random === 3) {
                         resultMessage += "Computer chose Scissors. You lose!";
+                        pcWinCount++;
                     } else {
                        resultMessage += "Computer chose Rock. You win!";
+                       humanWinCount++;
                     }
                     break;
                 case 3: // Scissors
                     if (random === 1) {
                         resultMessage += "Computer chose Rock. You lose!";
+                        pcWinCount++;
                     } else {
                         resultMessage += "Computer chose Paper. You win!";
+                        humanWinCount++;
                     }
                     break;
             }
         }
 
         battleGround.textContent = resultMessage;
+        pcWinCountOut.textContent = pcWinCount;
+        humanWinCountOut.textContent = humanWinCount;
     });
 });
