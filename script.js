@@ -61,12 +61,14 @@ function isGameWon(count){
             gameOverTitle.textContent = "You Lost!";
             gameOverText.textContent = "It's sad you fell in this battle, but try again!";
             gameOverCard.style.display = 'block';
+            overlay.style.display ='block';
             
     }else if (humanWinCount>= ((selectedValue+1)/2)){
         // console.log("game won!");
         gameOverTitle.textContent = "You won!";
         gameOverText.textContent = "Now that was a great battle!  Keep up you spirit and win more!";        
         gameOverCard.style.display = 'block';
+        overlay.style.display ='block';
     }
    
 }
@@ -85,6 +87,7 @@ newGame.addEventListener('click' , () =>{
 newGame2.addEventListener('click' , () =>{
     // console.log("new game");
     gameOverCard.style.display = 'none';
+    overlay.style.display ='none';
     newGameStart();
 
 })

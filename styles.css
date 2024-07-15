@@ -31,9 +31,10 @@ body{
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(48, 48, 48, 0.493); 
+    background-color: rgba(21, 21, 21, 0.493); 
     z-index: 1000; 
     display: none; 
+    cursor: no-drop;
 }
 
 .title{
@@ -360,6 +361,10 @@ body{
 
     .battleGround{
         transform: scale(0.8);
+    }
+
+    .game-over-card{
+        top:40%;
     }
 
     #game-over-title{
